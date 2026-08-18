@@ -86,9 +86,12 @@ get an email every time someone signs up:
 
 ## What's in here
 
-- `app/page.tsx` — the page content/copy
-- `app/ComingSoonForm.tsx` — the email capture form (Netlify Forms)
-- `app/globals.css` — all styling (palette, type, the animated grid + line)
+- `app/page.tsx` — the full one-page site (hero, services, before/after, process, contact)
+- `app/components/Logo.tsx` — the HGG logo mark + lockup
+- `app/components/Icons.tsx` — service line-icons
+- `app/components/BeforeAfter.tsx` — illustrated before/after concept renderings
+- `app/components/EstimateForm.tsx` — the free-estimate request form (Netlify Forms)
+- `app/globals.css` — all styling (palette, type, layout)
 - `app/layout.tsx` — fonts (Archivo + IBM Plex Sans) and page metadata
 - `netlify.toml` — tells Netlify how to build and publish the site
 

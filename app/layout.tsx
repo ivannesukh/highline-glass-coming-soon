@@ -17,17 +17,17 @@ const plexSans = IBM_Plex_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Highline Glass Group — Coming Soon",
+  title: "Highline Glass Group | Residential & Commercial Glass, Windows & Storefronts",
   description:
-    "Highline Glass Group is a new architectural glass and glazing company. Storefronts, curtain walls, railings, and custom glazing — launching soon at highlineglassgroup.com.",
+    "Highline Glass Group (HGG) designs, fabricates, and installs residential windows, shower enclosures, commercial glass paneling, partitions, and storefront systems. Free on-site estimates.",
   metadataBase: new URL("https://highlineglassgroup.com"),
   icons: {
     icon: "/favicon.svg",
   },
   openGraph: {
-    title: "Highline Glass Group — Coming Soon",
+    title: "Highline Glass Group | Windows, Glass & Storefronts",
     description:
-      "Architectural glass and glazing, set to the line. Launching soon.",
+      "Residential windows, glass showers, commercial paneling, partitions, and storefront systems — precision glazing from HGG.",
     url: "https://highlineglassgroup.com",
     siteName: "Highline Glass Group",
     type: "website",

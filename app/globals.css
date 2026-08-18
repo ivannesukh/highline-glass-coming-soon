@@ -200,12 +200,13 @@ a {
 
 .lockup {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 12px;
+  gap: 5px;
 }
 
 .lockup-mark {
-  width: 64px;
+  width: 78px;
   height: auto;
   flex: none;
 }
@@ -213,12 +214,12 @@ a {
 .lockup-full {
   font-family: var(--font-display);
   font-weight: 600;
-  font-size: 10px;
-  letter-spacing: 0.13em;
+  font-size: 9px;
+  letter-spacing: 0.11em;
   text-transform: uppercase;
   color: var(--slate-dim);
-  max-width: 9ch;
-  line-height: 1.4;
+  white-space: nowrap;
+  line-height: 1;
 }
 
 /* ---------- Hero ---------- */

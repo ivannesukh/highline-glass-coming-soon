@@ -1,55 +1,44 @@
 /**
- * HGG brand mark — v3, "Glazed Gable Line."
+ * HGG brand mark — v4, "Nested Aperture."
  *
- * One continuous bronze stroke does two jobs: it traces a gable roof
- * in section (an open line, not a filled silhouette), then keeps
- * going straight off the eave as a simple horizon line — the same
- * ascending-line motif the brand launched with. The gable itself is
- * glazed: filled with a pale glass-blue tint rather than solid color,
- * so it reads as an actual glazed gable end, not a pictogram.
- *
- * The mark carries no lettering. Identity comes from the wordmark
- * set underneath it (see LogoLockup).
+ * Four concentric corner brackets in a gold gradient, receding like
+ * looking down a deep window reveal, cut by a single diagonal and
+ * grounded by a faint horizon line underneath — the same horizon
+ * motif the brand launched with, carried into this direction too.
+ * Paired with a serif wordmark set in the surrounding gold/navy
+ * system rather than the sans-serif system used previously.
  */
 export function LogoMark({ className }: { className?: string }) {
   return (
     <svg
-      viewBox="0 0 214 108"
+      viewBox="0 0 150 150"
       className={className}
       aria-hidden="true"
       fill="none"
     >
       <defs>
-        <linearGradient id="hgg-metal" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0" stopColor="#6E5230" />
-          <stop offset="0.24" stopColor="#B8874C" />
-          <stop offset="0.46" stopColor="#EFD09A" />
-          <stop offset="0.6" stopColor="#C89A5C" />
-          <stop offset="0.8" stopColor="#6E5230" />
-          <stop offset="1" stopColor="#B8874C" />
+        <linearGradient id="hgg-gold" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stopColor="#F0D5AC" />
+          <stop offset="0.45" stopColor="#C89D68" />
+          <stop offset="1" stopColor="#9F7243" />
         </linearGradient>
-        <linearGradient id="hgg-glass" x1="0" y1="0" x2="0.3" y2="1">
-          <stop offset="0" stopColor="#F1F8F9" />
-          <stop offset="1" stopColor="#93C7CC" />
-        </linearGradient>
+        <filter id="hgg-glow" x="-40%" y="-40%" width="180%" height="180%">
+          <feGaussianBlur stdDeviation="2.2" result="b" />
+          <feMerge>
+            <feMergeNode in="b" />
+            <feMergeNode in="SourceGraphic" />
+          </feMerge>
+        </filter>
       </defs>
 
-      {/* glazed gable */}
-      <path d="M6 100 L66 16 L126 100 Z" fill="url(#hgg-glass)" opacity="0.95" />
-
-      {/* roof section line, continuing as the horizon line */}
-      <path
-        d="M6 100 L66 16 L126 100"
-        stroke="url(#hgg-metal)"
-        strokeWidth="9"
-        strokeLinejoin="round"
-        strokeLinecap="round"
-      />
-      <path d="M126 100 L206 100" stroke="url(#hgg-metal)" strokeWidth="9" strokeLinecap="round" />
-
-      {/* eave + ridge accents */}
-      <circle cx="6" cy="100" r="5" fill="url(#hgg-metal)" />
-      <circle cx="66" cy="16" r="4" fill="url(#hgg-metal)" />
+      <g stroke="url(#hgg-gold)" strokeLinecap="square">
+        <path d="M5 145V5H145" strokeWidth="7.5" filter="url(#hgg-glow)" />
+        <path d="M27 145V27H145" strokeWidth="2.6" opacity="0.95" />
+        <path d="M49 145V49H145" strokeWidth="2.6" opacity="0.72" />
+        <path d="M71 145V71H145" strokeWidth="2.6" opacity="0.48" />
+        <path d="M5 145L145 5" strokeWidth="3.4" />
+        <path d="M5 145H145" strokeWidth="1.4" opacity="0.45" />
+      </g>
     </svg>
   );
 }
@@ -58,7 +47,10 @@ export function LogoLockup({ className }: { className?: string }) {
   return (
     <div className={`lockup ${className ?? ""}`}>
       <LogoMark className="lockup-mark" />
-      <span className="lockup-full">Highline Glass Group</span>
+      <span className="lockup-type">
+        <span className="lockup-line1">Highline</span>
+        <span className="lockup-line2">Glass Group</span>
+      </span>
     </div>
   );
 }

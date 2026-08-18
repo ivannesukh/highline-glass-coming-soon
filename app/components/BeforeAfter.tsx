@@ -49,19 +49,19 @@ export function ResidentialBeforeAfter({ className }: { className?: string }) {
           <line key={i} x1="320" y1={40 + i * 36} x2="640" y2={40 + i * 36} stroke="#1f252c" strokeWidth="2" />
         ))}
         {/* new window: crisp bronze frame, single clean pane */}
-        <rect x="404" y="86" width="152" height="210" rx="2" fill="#0d1014" stroke="#B8905B" strokeWidth="5" />
+        <rect x="404" y="86" width="152" height="210" rx="2" fill="#0d1014" stroke="#C89D68" strokeWidth="5" />
         <rect x="410" y="92" width="140" height="198" fill="url(#ra-after-glass)" />
         <line x1="410" y1="92" x2="550" y2="290" stroke="#EAF2F4" strokeWidth="1" opacity="0.35" />
-        <line x1="480" y1="86" x2="480" y2="296" stroke="#B8905B" strokeWidth="1.5" opacity="0.35" />
-        <rect x="398" y="298" width="164" height="6" rx="2" fill="#B8905B" />
-        <rect x="486" y="336" width="94" height="26" rx="3" fill="#0d1014" stroke="#B8905B" />
-        <text x="533" y="353" textAnchor="middle" fontFamily="Archivo, sans-serif" fontSize="12" fontWeight="700" letterSpacing="2" fill="#D9B183">AFTER</text>
+        <line x1="480" y1="86" x2="480" y2="296" stroke="#C89D68" strokeWidth="1.5" opacity="0.35" />
+        <rect x="398" y="298" width="164" height="6" rx="2" fill="#C89D68" />
+        <rect x="486" y="336" width="94" height="26" rx="3" fill="#0d1014" stroke="#C89D68" />
+        <text x="533" y="353" textAnchor="middle" fontFamily="Archivo, sans-serif" fontSize="12" fontWeight="700" letterSpacing="2" fill="#F0D5AC">AFTER</text>
       </g>
 
       {/* divider + transform mark */}
-      <line x1="320" y1="0" x2="320" y2="380" stroke="#B8905B" strokeWidth="2" />
-      <circle cx="320" cy="190" r="20" fill="#12161B" stroke="#B8905B" strokeWidth="2" />
-      <path d="M312 190h16M322 184l6 6-6 6" stroke="#D9B183" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" />
+      <line x1="320" y1="0" x2="320" y2="380" stroke="#C89D68" strokeWidth="2" />
+      <circle cx="320" cy="190" r="20" fill="#12161B" stroke="#C89D68" strokeWidth="2" />
+      <path d="M312 190h16M322 184l6 6-6 6" stroke="#F0D5AC" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   );
 }
@@ -108,23 +108,23 @@ export function StorefrontBeforeAfter({ className }: { className?: string }) {
         <rect x="320" y="0" width="320" height="380" fill="#12161B" />
         <rect x="320" y="34" width="320" height="12" fill="#0d1014" />
         {/* full-height storefront glazing system */}
-        <rect x="340" y="52" width="280" height="238" fill="#0d1014" stroke="#B8905B" strokeWidth="5" />
+        <rect x="340" y="52" width="280" height="238" fill="#0d1014" stroke="#C89D68" strokeWidth="5" />
         <rect x="346" y="58" width="268" height="226" fill="url(#sa-after-glass)" />
-        <line x1="404" y1="52" x2="404" y2="290" stroke="#B8905B" strokeWidth="3" />
-        <line x1="466" y1="52" x2="466" y2="290" stroke="#B8905B" strokeWidth="3" />
-        <line x1="528" y1="52" x2="528" y2="290" stroke="#B8905B" strokeWidth="3" />
-        <rect x="404" y="52" width="62" height="238" fill="none" stroke="#D9B183" strokeWidth="1" opacity="0.4" />
+        <line x1="404" y1="52" x2="404" y2="290" stroke="#C89D68" strokeWidth="3" />
+        <line x1="466" y1="52" x2="466" y2="290" stroke="#C89D68" strokeWidth="3" />
+        <line x1="528" y1="52" x2="528" y2="290" stroke="#C89D68" strokeWidth="3" />
+        <rect x="404" y="52" width="62" height="238" fill="none" stroke="#F0D5AC" strokeWidth="1" opacity="0.4" />
         <line x1="346" y1="58" x2="612" y2="200" stroke="#EAF2F4" strokeWidth="1" opacity="0.3" />
         {/* slim signage band */}
-        <rect x="340" y="20" width="280" height="16" rx="2" fill="#0d1014" stroke="#B8905B" strokeWidth="1.5" />
-        <text x="480" y="32" textAnchor="middle" fontFamily="Archivo, sans-serif" fontSize="10" fontWeight="700" letterSpacing="3" fill="#D9B183">HGG</text>
-        <rect x="486" y="336" width="94" height="26" rx="3" fill="#0d1014" stroke="#B8905B" />
-        <text x="533" y="353" textAnchor="middle" fontFamily="Archivo, sans-serif" fontSize="12" fontWeight="700" letterSpacing="2" fill="#D9B183">AFTER</text>
+        <rect x="340" y="20" width="280" height="16" rx="2" fill="#0d1014" stroke="#C89D68" strokeWidth="1.5" />
+        <text x="480" y="32" textAnchor="middle" fontFamily="Archivo, sans-serif" fontSize="10" fontWeight="700" letterSpacing="3" fill="#F0D5AC">HGG</text>
+        <rect x="486" y="336" width="94" height="26" rx="3" fill="#0d1014" stroke="#C89D68" />
+        <text x="533" y="353" textAnchor="middle" fontFamily="Archivo, sans-serif" fontSize="12" fontWeight="700" letterSpacing="2" fill="#F0D5AC">AFTER</text>
       </g>
 
-      <line x1="320" y1="0" x2="320" y2="380" stroke="#B8905B" strokeWidth="2" />
-      <circle cx="320" cy="190" r="20" fill="#12161B" stroke="#B8905B" strokeWidth="2" />
-      <path d="M312 190h16M322 184l6 6-6 6" stroke="#D9B183" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" />
+      <line x1="320" y1="0" x2="320" y2="380" stroke="#C89D68" strokeWidth="2" />
+      <circle cx="320" cy="190" r="20" fill="#12161B" stroke="#C89D68" strokeWidth="2" />
+      <path d="M312 190h16M322 184l6 6-6 6" stroke="#F0D5AC" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   );
 }

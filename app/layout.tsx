@@ -1,11 +1,18 @@
 import type { Metadata } from "next";
-import { Archivo, IBM_Plex_Sans } from "next/font/google";
+import { Archivo, Fraunces, IBM_Plex_Sans } from "next/font/google";
 import "./globals.css";
 
 const archivo = Archivo({
   subsets: ["latin"],
   weight: ["500", "600", "700"],
   variable: "--font-display",
+  display: "swap",
+});
+
+const fraunces = Fraunces({
+  subsets: ["latin"],
+  weight: ["500", "600", "700", "900"],
+  variable: "--font-serif",
   display: "swap",
 });
 
@@ -40,7 +47,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${archivo.variable} ${plexSans.variable}`}>
+    <html lang="en" className={`${archivo.variable} ${fraunces.variable} ${plexSans.variable}`}>
       <body>{children}</body>
     </html>
   );

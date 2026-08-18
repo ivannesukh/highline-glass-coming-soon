@@ -118,6 +118,7 @@ const MATERIALS = [
 export default function Home() {
   return (
     <main className="page">
+      <div className="page-bg" aria-hidden="true" />
       <div className="grid-bg" aria-hidden="true" />
 
       <header id="top" className="site-header">

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="utf-8" /><title>Form detection</title></head>
+<body>
+  <!--
+    This file exists only so Netlify's build-time form scanner can
+    detect the "estimate-request" form. Next.js renders that form
+    client-side (see app/components/EstimateForm.tsx), so it never
+    appears in the static HTML Netlify parses at deploy time. This
+    plain, unbuilt HTML page is never linked to or visited by users —
+    it just registers the field names Netlify should accept. Keep the
+    field names here in sync with EstimateForm.tsx.
+  -->
+  <form name="estimate-request" data-netlify="true" hidden>
+    <input type="hidden" name="form-name" value="estimate-request" />
+    <input type="text" name="name" />
+    <input type="email" name="email" />
+    <input type="tel" name="phone" />
+    <input type="text" name="project-type" />
+    <textarea name="message"></textarea>
+  </form>
+</body>
+</html>

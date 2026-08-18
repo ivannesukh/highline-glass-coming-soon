@@ -5,8 +5,8 @@
  * looking down a deep window reveal, cut by a single diagonal and
  * grounded by a faint horizon line underneath — the same horizon
  * motif the brand launched with, carried into this direction too.
- * Paired with a serif wordmark set in the surrounding gold/navy
- * system rather than the sans-serif system used previously.
+ * Paired with a wordmark set in the site's contemporary geometric
+ * sans (Jost).
  */
 export function LogoMark({ className }: { className?: string }) {
   return (

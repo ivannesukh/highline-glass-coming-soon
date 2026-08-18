@@ -1,46 +1,41 @@
 :root {
-  /* ---------- HGG brand palette — navy + gold, serif display ---------- */
-  --bg-1: #07131e;
-  --bg-2: #10283a;
-  --bg-3: #1c4155;
+  /* ---------- HGG brand palette — light glass + gold ---------- */
+  --glass-1: #eef7fa;
+  --glass-2: #d9edf2;
+  --glass-3: #bfe0e8;
 
-  --panel: #142838;
-  --panel-alt: #0f2130;
+  --panel: rgba(255, 255, 255, 0.62);
+  --panel-alt: #f3fafc;
 
-  --cream: #f5f0e6;
-  --mist: #9fb0ba;
-  --mist-dim: #6b7d88;
+  --ink: #0f232f;
+  --slate: #4c6470;
+  --slate-dim: #7e93a0;
 
   --gold-deep: #9f7243;
   --gold: #c89d68;
   --gold-bright: #f0d5ac;
+  --teal: #2e7268;
 
-  --teal: #6fa8a0;
+  --line: rgba(15, 35, 47, 0.1);
+  --line-strong: rgba(15, 35, 47, 0.17);
 
-  --line: rgba(245, 240, 230, 0.12);
-  --line-strong: rgba(245, 240, 230, 0.2);
-
-  --gold-grad: linear-gradient(
-    135deg,
-    var(--gold-deep) 0%,
-    var(--gold) 45%,
-    var(--gold-bright) 100%
-  );
+  --gold-grad: linear-gradient(135deg, var(--gold-deep) 0%, var(--gold) 45%, var(--gold-bright) 100%);
 
   /* Narrower-range gold for buttons: stays light enough that dark
-     navy text keeps safe contrast across the whole gradient. */
-  --gold-btn: linear-gradient(
-    135deg,
-    var(--gold-bright) 0%,
-    var(--gold) 50%,
-    var(--gold-bright) 100%
-  );
+     ink text keeps safe contrast across the whole gradient. */
+  --gold-btn: linear-gradient(135deg, var(--gold-bright) 0%, var(--gold) 50%, var(--gold-bright) 100%);
 
-  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3), 0 1px 1px rgba(0, 0, 0, 0.2);
-  --shadow-md: 0 10px 28px rgba(0, 0, 0, 0.4), 0 2px 8px rgba(0, 0, 0, 0.25);
+  --shadow-sm: 0 1px 2px rgba(15, 35, 47, 0.08), 0 1px 1px rgba(15, 35, 47, 0.05);
+  --shadow-md: 0 10px 28px rgba(15, 35, 47, 0.12), 0 2px 8px rgba(15, 35, 47, 0.07);
 
-  --font-display: "Archivo", ui-sans-serif, system-ui, sans-serif;
-  --font-serif: "Fraunces", Georgia, "Times New Roman", serif;
+  /* dark bookend band (footer) */
+  --dark-bg: #07131e;
+  --dark-text: #f5f0e6;
+  --dark-mist: #9fb0ba;
+  --dark-mist-dim: #6b7d88;
+  --dark-line: rgba(245, 240, 230, 0.1);
+
+  --font-display: "Jost", ui-sans-serif, system-ui, sans-serif;
   --font-body: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
 }
 
@@ -59,8 +54,8 @@ html {
 }
 
 body {
-  background: var(--bg-1);
-  color: var(--cream);
+  background: var(--glass-1);
+  color: var(--ink);
   font-family: var(--font-body);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
@@ -72,7 +67,7 @@ a {
 
 ::selection {
   background: var(--gold-bright);
-  color: var(--bg-1);
+  color: var(--ink);
 }
 
 .page {
@@ -92,13 +87,16 @@ a {
   padding-right: clamp(20px, 5vw, 64px);
 }
 
-/* ---------- Fixed atmospheric backdrop ---------- */
+/* ---------- Fixed light-glass backdrop ---------- */
 
 .page-bg {
   position: fixed;
   inset: 0;
   z-index: -2;
-  background: linear-gradient(135deg, var(--bg-1) 0%, var(--bg-2) 58%, var(--bg-3) 100%);
+  background:
+    radial-gradient(120% 60% at 18% 0%, rgba(255, 255, 255, 0.65), transparent 60%),
+    radial-gradient(90% 50% at 100% 100%, rgba(255, 255, 255, 0.3), transparent 60%),
+    linear-gradient(135deg, var(--glass-1) 0%, var(--glass-2) 55%, var(--glass-3) 100%);
 }
 
 .grid-bg {
@@ -128,8 +126,8 @@ a {
   position: sticky;
   top: 0;
   z-index: 20;
-  background: rgba(7, 19, 30, 0.82);
-  backdrop-filter: blur(10px);
+  background: rgba(238, 247, 250, 0.72);
+  backdrop-filter: blur(12px) saturate(140%);
   border-bottom: 1px solid var(--line);
 }
 
@@ -156,19 +154,19 @@ a {
   font-family: var(--font-display);
   font-weight: 600;
   font-size: 13px;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.03em;
   text-transform: uppercase;
 }
 
 .site-nav a {
   text-decoration: none;
-  color: var(--mist);
+  color: var(--slate);
   white-space: nowrap;
   transition: color 0.15s ease;
 }
 
 .site-nav a:hover {
-  color: var(--cream);
+  color: var(--ink);
 }
 
 .cta-pill {
@@ -176,9 +174,9 @@ a {
   font-family: var(--font-display);
   font-weight: 700;
   font-size: 12.5px;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
-  color: var(--bg-1);
+  color: var(--ink);
   background: var(--gold-btn);
   border-radius: 999px;
   padding: 10px 18px;
@@ -214,19 +212,27 @@ a {
 }
 
 .lockup-line1 {
-  font-family: var(--font-serif);
+  font-family: var(--font-display);
   font-weight: 600;
   font-size: 19px;
-  letter-spacing: 0.03em;
-  color: var(--cream);
+  letter-spacing: 0.02em;
+  color: var(--ink);
 }
 
 .lockup-line2 {
-  font-family: var(--font-serif);
+  font-family: var(--font-display);
   font-weight: 500;
-  font-size: 12px;
-  letter-spacing: 0.09em;
+  font-size: 11.5px;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
+  color: var(--gold-deep);
+}
+
+.foot .lockup-line1 {
+  color: var(--dark-text);
+}
+
+.foot .lockup-line2 {
   color: var(--gold-bright);
 }
 
@@ -248,42 +254,42 @@ a {
 .section-eyebrow {
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: 12px;
-  letter-spacing: 0.22em;
+  font-size: 12.5px;
+  letter-spacing: 0.24em;
   text-transform: uppercase;
-  color: var(--mist-dim);
+  color: var(--slate-dim);
   margin: 0 0 20px;
 }
 
 .eyebrow span {
-  color: var(--gold-bright);
+  color: var(--gold-deep);
 }
 
 h1 {
-  font-family: var(--font-serif);
-  font-weight: 600;
+  font-family: var(--font-display);
+  font-weight: 700;
   font-size: clamp(34px, 5.4vw, 60px);
   line-height: 1.08;
   letter-spacing: -0.005em;
   margin: 0 0 22px;
-  color: var(--cream);
+  color: var(--ink);
 }
 
 h2 {
-  font-family: var(--font-serif);
-  font-weight: 600;
+  font-family: var(--font-display);
+  font-weight: 700;
   font-size: clamp(26px, 3.6vw, 40px);
   line-height: 1.18;
   letter-spacing: -0.005em;
   margin: 0 0 16px;
-  color: var(--cream);
+  color: var(--ink);
   max-width: 22ch;
 }
 
 .lede {
   font-size: clamp(15px, 1.6vw, 17.5px);
   line-height: 1.65;
-  color: var(--mist);
+  color: var(--slate);
   max-width: 58ch;
   margin: 0 0 36px;
 }
@@ -291,7 +297,7 @@ h2 {
 .section-lede {
   font-size: 15.5px;
   line-height: 1.65;
-  color: var(--mist);
+  color: var(--slate);
   max-width: 60ch;
   margin: -6px 0 40px;
 }
@@ -323,7 +329,7 @@ h2 {
   font-weight: 600;
   font-size: 13.5px;
   letter-spacing: 0.02em;
-  color: var(--mist);
+  color: var(--slate);
   text-decoration: none;
   border-bottom: 1px solid var(--line-strong);
   padding-bottom: 2px;
@@ -331,7 +337,7 @@ h2 {
 }
 
 .hero-cta-secondary:hover {
-  color: var(--gold-bright);
+  color: var(--gold-deep);
   border-color: var(--gold);
 }
 
@@ -344,7 +350,7 @@ h2 {
   padding: 20px 0 0;
   border-top: 1px solid var(--line);
   font-size: 13px;
-  color: var(--mist-dim);
+  color: var(--slate-dim);
 }
 
 .hero-tags li {
@@ -372,12 +378,12 @@ h2 {
 }
 
 .section-alt {
-  background: rgba(0, 0, 0, 0.15);
+  background: rgba(255, 255, 255, 0.25);
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
 }
 
-/* ---------- Service cards ---------- */
+/* ---------- Service cards (frosted glass) ---------- */
 
 .service-grid {
   display: grid;
@@ -388,7 +394,8 @@ h2 {
 
 .service-card {
   background: var(--panel);
-  border: 1px solid var(--line);
+  backdrop-filter: blur(14px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.5);
   border-radius: 10px;
   padding: 28px 24px;
   box-shadow: var(--shadow-sm);
@@ -404,7 +411,7 @@ h2 {
 .service-icon {
   width: 30px;
   height: 30px;
-  color: var(--gold);
+  color: var(--gold-deep);
   margin-bottom: 18px;
 }
 
@@ -422,14 +429,14 @@ h2 {
   font-family: var(--font-display);
   font-weight: 700;
   font-size: 18px;
-  color: var(--cream);
+  color: var(--ink);
   margin: 0 0 10px;
 }
 
 .service-card p {
   font-size: 14px;
   line-height: 1.6;
-  color: var(--mist);
+  color: var(--slate);
   margin: 0;
 }
 
@@ -464,14 +471,14 @@ h2 {
   font-family: var(--font-display);
   font-weight: 700;
   font-size: 22px;
-  color: var(--cream);
+  color: var(--ink);
   margin: 0 0 12px;
 }
 
 .before-after-copy p {
   font-size: 15px;
   line-height: 1.65;
-  color: var(--mist);
+  color: var(--slate);
   margin: 0 0 20px;
 }
 
@@ -489,7 +496,7 @@ h2 {
   align-items: flex-start;
   gap: 10px;
   font-size: 14px;
-  color: var(--mist);
+  color: var(--slate);
   line-height: 1.5;
 }
 
@@ -498,7 +505,7 @@ h2 {
   height: 16px;
   flex: none;
   margin-top: 2px;
-  color: var(--gold);
+  color: var(--gold-deep);
 }
 
 /* ---------- Process ---------- */
@@ -516,7 +523,7 @@ h2 {
   font-weight: 700;
   font-size: 13px;
   letter-spacing: 0.1em;
-  color: var(--gold);
+  color: var(--gold-deep);
   margin-bottom: 14px;
 }
 
@@ -524,14 +531,14 @@ h2 {
   font-family: var(--font-display);
   font-weight: 700;
   font-size: 17px;
-  color: var(--cream);
+  color: var(--ink);
   margin: 0 0 10px;
 }
 
 .process-card p {
   font-size: 14px;
   line-height: 1.6;
-  color: var(--mist);
+  color: var(--slate);
   margin: 0;
 }
 
@@ -553,14 +560,14 @@ h2 {
   font-family: var(--font-display);
   font-weight: 700;
   font-size: 16.5px;
-  color: var(--cream);
+  color: var(--ink);
   margin: 0 0 8px;
 }
 
 .value-card p {
   font-size: 14px;
   line-height: 1.6;
-  color: var(--mist);
+  color: var(--slate);
   margin: 0;
 }
 
@@ -576,7 +583,7 @@ h2 {
   font-size: 11px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--mist-dim);
+  color: var(--slate-dim);
   margin: 0 0 18px;
 }
 
@@ -591,9 +598,10 @@ h2 {
 
 .materials-list li {
   font-size: 13px;
-  color: var(--mist);
+  color: var(--slate);
   background: var(--panel);
-  border: 1px solid var(--line-strong);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
   border-radius: 999px;
   padding: 8px 16px;
 }
@@ -614,13 +622,13 @@ h2 {
 .contact-intro p {
   font-size: 15px;
   line-height: 1.65;
-  color: var(--mist);
+  color: var(--slate);
   max-width: 42ch;
 }
 
 .contact-mark {
   margin-top: 32px;
-  opacity: 0.9;
+  opacity: 0.85;
 }
 
 .contact-mark-icon {
@@ -630,7 +638,8 @@ h2 {
 
 .estimate-form {
   background: var(--panel);
-  border: 1px solid var(--line-strong);
+  backdrop-filter: blur(16px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.55);
   border-radius: 12px;
   padding: clamp(24px, 3vw, 36px);
   box-shadow: var(--shadow-md);
@@ -650,9 +659,9 @@ h2 {
   font-family: var(--font-display);
   font-weight: 600;
   font-size: 11.5px;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.07em;
   text-transform: uppercase;
-  color: var(--mist-dim);
+  color: var(--slate-dim);
 }
 
 .field-label-full {
@@ -667,7 +676,7 @@ h2 {
   border: 1px solid var(--line-strong);
   border-radius: 6px;
   padding: 13px 14px;
-  color: var(--cream);
+  color: var(--ink);
   font-family: var(--font-body);
   font-size: 14.5px;
   transition: border-color 0.15s ease, box-shadow 0.15s ease;
@@ -680,25 +689,25 @@ textarea.field {
 
 select.field {
   appearance: none;
-  background-image: linear-gradient(45deg, transparent 50%, var(--mist) 50%),
-    linear-gradient(135deg, var(--mist) 50%, transparent 50%);
+  background-image: linear-gradient(45deg, transparent 50%, var(--slate) 50%),
+    linear-gradient(135deg, var(--slate) 50%, transparent 50%);
   background-position: calc(100% - 18px) center, calc(100% - 13px) center;
   background-size: 5px 5px, 5px 5px;
   background-repeat: no-repeat;
 }
 
 .field::placeholder {
-  color: var(--mist-dim);
+  color: var(--slate-dim);
 }
 
 .field:focus {
   outline: none;
   border-color: var(--gold);
-  box-shadow: 0 0 0 3px rgba(200, 157, 104, 0.2);
+  box-shadow: 0 0 0 3px rgba(200, 157, 104, 0.18);
 }
 
 .field:focus-visible {
-  outline: 2px solid var(--gold);
+  outline: 2px solid var(--gold-deep);
   outline-offset: 2px;
 }
 
@@ -706,14 +715,14 @@ select.field {
   display: block;
   width: fit-content;
   background: var(--gold-btn);
-  color: var(--bg-1);
+  color: var(--ink);
   border: none;
   border-radius: 6px;
   padding: 14px 26px;
   font-family: var(--font-display);
   font-weight: 700;
   font-size: 13px;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
   cursor: pointer;
   box-shadow: var(--shadow-sm);
@@ -730,7 +739,7 @@ select.field {
 }
 
 .submit:focus-visible {
-  outline: 2px solid var(--gold-bright);
+  outline: 2px solid var(--gold-deep);
   outline-offset: 2px;
 }
 
@@ -743,7 +752,7 @@ select.field {
 .hint {
   margin-top: 16px;
   font-size: 12.5px;
-  color: var(--mist-dim);
+  color: var(--slate-dim);
 }
 
 .success {
@@ -751,24 +760,24 @@ select.field {
   font-weight: 600;
   font-size: 15px;
   line-height: 1.6;
-  color: var(--gold-bright);
+  color: var(--gold-deep);
   padding: 4px 0 2px;
 }
 
 .error {
   margin-top: 12px;
   font-size: 12.5px;
-  color: #e08b6c;
+  color: #b0492b;
 }
 
-/* ---------- Footer ---------- */
+/* ---------- Footer (dark bookend) ---------- */
 
 .foot {
   position: relative;
   z-index: 2;
   margin-top: clamp(56px, 9vh, 100px);
   padding: clamp(40px, 6vh, 64px) 0 28px;
-  background: var(--bg-1);
+  background: var(--dark-bg);
 }
 
 .foot-row {
@@ -783,7 +792,7 @@ select.field {
 .foot-brand p {
   margin: 12px 0 0;
   font-size: 12.5px;
-  color: var(--mist-dim);
+  color: var(--dark-mist-dim);
   max-width: 30ch;
 }
 
@@ -796,7 +805,7 @@ select.field {
 
 .foot-nav a {
   text-decoration: none;
-  color: var(--mist);
+  color: var(--dark-mist);
   transition: color 0.15s ease;
 }
 
@@ -811,13 +820,13 @@ select.field {
   align-items: baseline;
   justify-content: space-between;
   padding-top: 20px;
-  border-top: 1px solid var(--line);
+  border-top: 1px solid var(--dark-line);
   font-size: 12.5px;
-  color: var(--mist-dim);
+  color: var(--dark-mist-dim);
 }
 
 .foot-legal a {
-  color: var(--mist);
+  color: var(--dark-mist);
   text-decoration: none;
 }
 
